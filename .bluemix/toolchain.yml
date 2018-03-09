@@ -17,7 +17,7 @@ template:
     git branch: >-
       [master](https://github.com/IBM/watson-review-analyzer/tree/master)
 toolchain:
-  name: 'secure-kubernetes-toolchain-{{timestamp}}'
+  name: 'watson-review-analyzer-toolchain-{{timestamp}}'
   template:
     getting_started:
       $ref: "#/messages/template.gettingStarted" 

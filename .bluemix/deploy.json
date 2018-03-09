@@ -44,9 +44,7 @@
 	    "disabled": false
         },
        "app-name": {
-            "description": {
-              "$ref": "#/messages/deploy.appDescription"
-            },
+            "description": "The app name is for the docker image that will be built. The format would be registry.ng.bluemix.net/REGISTRY_NAMESPACE/APP_NAME:GIT_COMMIT. This will be used by your Kubernetes Cluster",
             "type": "string",
             "pattern": "\\S"
         },
@@ -69,9 +67,7 @@
        },{
           "type": "text",
           "readonly": false,
-          "title": {
-            "$ref": "#/messages/deploy.appName"
-          },
+          "title": "App name for your docker image",
           "key": "app-name"
         },{
 	  "type": "password",
