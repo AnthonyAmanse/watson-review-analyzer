@@ -26,7 +26,7 @@ services:
     service_id: githubpublic
     parameters:
       repo_name: "{{name}}"
-      repo_url: https://github.com/AnthonyAmanse/watson-review-analyzer
+      repo_url: https://github.com/IBM/watson-review-analyzer
       type: clone
       has_issues: false
   hello-world-build:
@@ -34,7 +34,7 @@ services:
     parameters:
       services:
         - hello-world-repo
-      name: 'hello-world-{{timestamp}}'
+      name: 'watson-review-pipeline-{{timestamp}}'
       ui-pipeline: true
       configuration:
         content:
