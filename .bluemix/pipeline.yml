@@ -156,9 +156,11 @@ stages:
       #Connect to a different container-service api by uncommenting and specifying an api endpoint
       #bx cs init --host https://us-south.containers.bluemix.net
 
+      echo "Creating config.json file"
+      echo "{\"discoveryUsername\":\"$DISCOVERY_USERNAME\",\"discoveryPassword\":\"$DISCOVERY_PASSWORD\"}" > test.json
       echo ""
       echo "CREATING CONFIG MAP FROM DISCOVERY CREDENTIALS"
-      kubectl create configmap watson-discovery-config --from-literal=discoveryUsername=$(DISCOVERY_USERNAME) --from-literal=discoveryPassword=$(DISCOVERY_PASSWORD)
+      kubectl create configmap watson-discovery-config --from-file=config.json
       echo ""
       echo "DEPLOYING USING MANIFEST:"
       cat couchdb.yaml
