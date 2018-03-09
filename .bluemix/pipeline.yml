@@ -92,7 +92,7 @@ stages:
       #Update deployment.yml with image name
       if [ -f watson-review-analyzer.yaml ]; then
           echo "UPDATING DEPLOYMENT MANIFEST:"
-          sed -i "s~^\([[:blank:]]*\)image:.*$~\1image: ${REGISTRY_URL}/${REGISTRY_NAMESPACE}/${IMAGE_NAME}:${GIT_COMMIT}~" watson-review-analyzer.yaml
+          sed -i "s~^\([[:blank:]]*\)- image:.*$~\1- image: ${REGISTRY_URL}/${REGISTRY_NAMESPACE}/${IMAGE_NAME}:${GIT_COMMIT}~" watson-review-analyzer.yaml
           cat watson-review-analyzer.yaml
           if [ ! -f $ARCHIVE_DIR/watson-review-analyzer.yaml ]; then # no need to copy if working in ./ already    
               cp watson-review-analyzer.yaml $ARCHIVE_DIR/
@@ -165,8 +165,8 @@ stages:
       kubectl apply -f couchdb.yaml
       sleep 15s
 
-      cat watson-discovery-review-analyzer.yaml
-      kubectl apply -f watson-discovery-review-analyzer.yaml  
+      cat watson-review-analyzer.yaml
+      kubectl apply -f watson-review-analyzer.yaml  
       echo ""
       echo "DEPLOYED SERVICE:"
       kubectl describe services watson-reviews
