@@ -175,6 +175,6 @@ stages:
       echo ""
       echo "DEPLOYED PODS:"
       kubectl describe pods --selector app=watson-reviews
-      PORT=$( kubectl get services | grep hello-service | sed 's/.*:\([0-9]*\).*/\1/g' )
+      PORT=$( kubectl get services | grep watson-reviews | sed 's/.*:\([0-9]*\).*/\1/g' )
       echo ""
       echo "VIEW THE APPLICATION AT: http://$IP_ADDR:$PORT"
